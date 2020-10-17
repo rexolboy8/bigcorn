@@ -1,6 +1,5 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
-var count = 0;
 /*
  DISCORD.JS VERSION 12 CODE
 */
@@ -15,6 +14,7 @@ const config = require("./config.json");
 const { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } = require("constants");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
+
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
@@ -66,7 +66,7 @@ client.on("message", async message => {
     //count words "kizna" because she is a bitch
     for(var i= 0; i < args.length; i++)
     {
-      if(args[i] === "kizna")
+      if(args[i].toLowerCase() === "kizna")
       {
         message.channel.send("lol screw kizna I suppose");//this crap works but causes errors, weird flex but ok
         return;

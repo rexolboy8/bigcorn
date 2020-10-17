@@ -12,6 +12,7 @@ const client = new Discord.Client();
 // Here we load the config.json file that contains our token and our prefix values. 
 const config = require("./config.json");
 const { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } = require("constants");
+const { TIMEOUT } = require("dns");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
 
@@ -21,7 +22,7 @@ client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds I suppose.`);
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`with your mom I suppose`);
+  client.user.setActivity(`with stand powers i suppose`);
 });
 
 client.on("guildCreate", guild => {
@@ -35,7 +36,22 @@ client.on("guildDelete", guild => {
 });
 
 
+
+
 client.on("message", async message => {
+  if(message.content === "BIG CORN: THE WORLD!")
+ {
+  message.channel.send("https://tenor.com/view/za-warudo-toki-wo-tomare-gif-8629953");
+ }
+ if(message.content === "BIG CORN: ZA HANDO!")
+ {
+  setTimeout(function(){
+  message.channel.send("https://tenor.com/view/okuyasu-nijimura-summon-jojo-the-hand-za-hando-gif-14165070");}, 800)
+  setTimeout(function(){
+    message.channel.send("https://tenor.com/view/scrape-okuyasu-nijimura-za-hando-the-hand-jojo-gif-14165071");
+}, 4000)
+  setTimeout(function(){message.channel.delete();}, 5100)
+}
   // This event will run on every single message received, from any channel or DM.
   
   // It's good practice to ignore other bots. This also makes your bot ignore itself
@@ -88,7 +104,7 @@ client.on("message", async message => {
   if(command === "applause") { 
     for (let i = 0; i < 9001; i++)//over 9000!!! 
     {
-      message.channel.send("*applause*");//pretty shit tho, only sends 8 messages and rests for 5 sec
+      message.channel.send("*applause*");//pretty shit tho, only sends 5 messages and rests for 5 sec
     }
   }
 
@@ -102,6 +118,12 @@ client.on("message", async message => {
   message.channel.send("ok then");
   message.channel.send("i like pineapples I suppose");
  }
+if(command === "punch" && args.join(" ") === "rush!")
+{
+  message.delete();
+  message.delete();
+  message.send("lol how did this reach");
+}
 
 });
 

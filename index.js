@@ -1,6 +1,6 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
-
+var count = 0;
 /*
  DISCORD.JS VERSION 12 CODE
 */
@@ -63,23 +63,32 @@ client.on("message", async message => {
     
   }
   if(command === "say") {
+    //count words "kizna" because she is a bitch
+    for(var i= 0; i < args.length; i++)
+    {
+      if(args[i] === "kizna")
+      {
+        message.channel.send("lol screw kizna I suppose");//this crap works but causes errors, weird flex but ok
+        return;
+      }
+      else continue;
+    }
+    //if we got kizna in message then screw kizna
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
     // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
     message.delete(); 
     // And we get the bot to say the thing: 
-    message.channel.send(sayMessage+"I suppose");
+    message.channel.send(sayMessage+" I suppose");
     
   }
-  if(command === "oof") {
-    message.delete(); 
-    message.channel.send("fuck"+"you I suppose");
     
-  }
+  
   if(command === "applause") { 
-    for (let i = 0; i < 9001; i++) {
-      message.channel.send("*applause*");
+    for (let i = 0; i < 9001; i++)//over 9000!!! 
+    {
+      message.channel.send("*applause*");//pretty shit tho, only sends 8 messages and rests for 5 sec
     }
   }
 

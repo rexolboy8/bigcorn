@@ -18,20 +18,20 @@ const { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } = require("constants");
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
-  console.log(`Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`);
+  console.log(`Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds I suppose.`);
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`with your mom`);
+  client.user.setActivity(`with your mom I suppose`);
 });
 
 client.on("guildCreate", guild => {
   // This event triggers when the bot joins a guild.
-  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members I suppose!`);
 });
 
 client.on("guildDelete", guild => {
   // this event triggers when the bot is removed from a guild.
-  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+  console.log(`I have been removed from: ${guild.name} (id: ${guild.id}) I suppose`);
 });
 
 
@@ -59,7 +59,7 @@ client.on("message", async message => {
     // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
     // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
     const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`);
+    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms I suppose`);
     
   }
   if(command === "say") {
@@ -69,12 +69,12 @@ client.on("message", async message => {
     // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
     message.delete(); 
     // And we get the bot to say the thing: 
-    message.channel.send(sayMessage);
+    message.channel.send(sayMessage+"I suppose");
     
   }
   if(command === "oof") {
     message.delete(); 
-    message.channel.send("fuck"+"you");
+    message.channel.send("fuck"+"you I suppose");
     
   }
   if(command === "applause") { 
@@ -91,7 +91,7 @@ client.on("message", async message => {
  if(command === "shut" && args.join(" ") === "the fuck up")
  {
   message.channel.send("ok then");
-  message.channel.send("i like pineapples");
+  message.channel.send("i like pineapples I suppose");
  }
 
 });

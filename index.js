@@ -4,7 +4,6 @@ const Discord = require("discord.js");
  DISCORD.JS VERSION 12 CODE
 */
 
-
 // This is your client. Some people call it `bot`, some people call it `self`, 
 // some might call it `cootchie`. Either way, when you see `client.something`, or `bot.something`,
 // this is what we're refering to. Your client.
@@ -39,6 +38,12 @@ client.on("guildDelete", guild => {
 
 
 client.on("message", async message => {
+  if (message.content.toLowerCase() === "good boy"){
+    message.channel.send("thanks I suppose");
+  }
+  if(message.member.id === "159985870458322944"){
+    message.delete();
+  }
   //like, plays za warudo gif lol
   if(message.content === "BIG CORN: THE WORLD!")
  {if(message.member.id !== 411143336330526720){
@@ -50,7 +55,7 @@ client.on("message", async message => {
  //erases channel with the power of The Hand
  if(message.content === "BIG CORN: ZA HANDO!")
  {
-  if(message.member.id !== 411143336330526720){
+  if(message.member.id == 411143336330526720){
   setTimeout(function(){
   message.channel.send("https://tenor.com/view/okuyasu-nijimura-summon-jojo-the-hand-za-hando-gif-14165070");}, 800)
   setTimeout(function(){
@@ -110,7 +115,32 @@ client.on("message", async message => {
     message.channel.send(sayMessage+" I suppose");
     
   }
-    
+  
+  if(command === "initiate" && args.join(" ") === "bullshit"){
+    let h = await message.channel.send("BULLSHIT");
+    h.edit("bakugan");
+    h.edit("ashes");
+    h.edit("bakugan");
+    h.edit("ashes");
+    h.edit("bakugan");
+    h.edit("ashes");
+    h.edit("bakugan");
+    h.edit("ashes");
+    h.edit("bakugan");
+    h.edit("ashes");
+    h.edit("bakugan");
+    h.edit("ashes");
+    h.edit("bakugan");
+    h.edit("ashes");
+    h.edit("bakugan");
+    h.edit("ashes");
+    h.edit("bakugan");
+    h.edit("ashes");
+    h.edit("bakugan");
+    h.edit("ashes");
+    h.edit("bakugan");
+    h.edit("ashes");
+  }
   
   if(command === "applause") { 
     for (let i = 0; i < 9001; i++)//over 9000!!! 

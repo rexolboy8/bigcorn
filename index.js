@@ -39,19 +39,30 @@ client.on("guildDelete", guild => {
 
 
 client.on("message", async message => {
+  //like, plays za warudo gif lol
   if(message.content === "BIG CORN: THE WORLD!")
- {
-  message.channel.send("https://tenor.com/view/za-warudo-toki-wo-tomare-gif-8629953");
+ {if(message.member.id !== 411143336330526720){
+  message.channel.send("https://tenor.com/view/za-warudo-toki-wo-tomare-gif-8629953");}
+  else {
+    message.channel.send("https://img.gifmagazine.net/gifmagazine/images/4212153/original.gif");
+  }
  }
+ //erases channel with the power of The Hand
  if(message.content === "BIG CORN: ZA HANDO!")
  {
+  if(message.member.id !== 411143336330526720){
   setTimeout(function(){
   message.channel.send("https://tenor.com/view/okuyasu-nijimura-summon-jojo-the-hand-za-hando-gif-14165070");}, 800)
   setTimeout(function(){
     message.channel.send("https://tenor.com/view/scrape-okuyasu-nijimura-za-hando-the-hand-jojo-gif-14165071");
-}, 4000)
-  setTimeout(function(){message.channel.delete();}, 5100)
+}, 4300)
+  setTimeout(function(){message.channel.delete();}, 5400)}
+  else {
+    message.channel.send("https://img.gifmagazine.net/gifmagazine/images/4212153/original.gif");
+  }
+
 }
+
   // This event will run on every single message received, from any channel or DM.
   
   // It's good practice to ignore other bots. This also makes your bot ignore itself

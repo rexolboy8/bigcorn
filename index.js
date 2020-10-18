@@ -38,11 +38,17 @@ client.on("guildDelete", guild => {
 
 
 client.on("message", async message => {
+  if(message.content === "BIG CORN: HEAVEN\'S DOOR!")
+  {
+    message.channel.send("https://tenor.com/view/heavens-door-jojo-anime-jjba-stand-gif-16320510");
+    message.channel.setName("geett dunked on");
+  }
   if (message.content.toLowerCase() === "good boy"){
     message.channel.send("thanks I suppose");
   }
   //does not allow herecy
-  if(message.member.id === "159985870458322944"){
+  if(message.member.id === "159985870458322944" || message.member.id === "125367104336691200"){
+    message.channel.send("silence, bitch ass bot");
     message.delete();
   }
   if(message.member.id === "754234378472783944"){
@@ -126,6 +132,12 @@ client.on("message", async message => {
     {
       message.channel.send("*applause*");//pretty shit tho, only sends 5 messages and rests for 5 sec
     }
+  }
+  if(command === "fuck" && args.join(" ") === "this channel")
+  {
+    message.channel.send("了解しましたかしら。");
+    message.channel.send("https://tenor.com/view/heavens-door-jojo-anime-jjba-stand-gif-16320510");
+    message.channel.setName("stupid "+message.channel.name);
   }
   if (command === "transmutate"){
     let originalString = args.join(); 

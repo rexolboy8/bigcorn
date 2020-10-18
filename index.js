@@ -41,12 +41,16 @@ client.on("message", async message => {
   if (message.content.toLowerCase() === "good boy"){
     message.channel.send("thanks I suppose");
   }
+  //does not allow herecy
   if(message.member.id === "159985870458322944"){
     message.delete();
   }
+  if(message.member.id === "754234378472783944"){
+    message.channel.send("Pog");
+  }
   //like, plays za warudo gif lol
   if(message.content === "BIG CORN: THE WORLD!")
- {if(message.member.id !== 411143336330526720){
+ {if(message.member.id === "411143336330526720"){
   message.channel.send("https://tenor.com/view/za-warudo-toki-wo-tomare-gif-8629953");}
   else {
     message.channel.send("https://img.gifmagazine.net/gifmagazine/images/4212153/original.gif");
@@ -55,7 +59,7 @@ client.on("message", async message => {
  //erases channel with the power of The Hand
  if(message.content === "BIG CORN: ZA HANDO!")
  {
-  if(message.member.id == 411143336330526720){
+  if(message.member.id === "411143336330526720"){
   setTimeout(function(){
   message.channel.send("https://tenor.com/view/okuyasu-nijimura-summon-jojo-the-hand-za-hando-gif-14165070");}, 800)
   setTimeout(function(){
@@ -95,12 +99,12 @@ client.on("message", async message => {
     
   }
   if(command === "say") {
-    //count words "kizna" because she is a bitch
+    //count words "kizna" because she is a heretic
     for(var i= 0; i < args.length; i++)
     {
       if(args[i].toLowerCase() === "kizna")
       {
-        message.channel.send("lol screw kizna I suppose");//this crap works but causes errors, weird flex but ok
+        message.channel.send("lol screw kizna I suppose");//this crap works but causes errors, weird flex but ok(upd: ok maybe it doesn't lol)
         return;
       }
       else continue;
@@ -116,36 +120,19 @@ client.on("message", async message => {
     
   }
   
-  if(command === "initiate" && args.join(" ") === "bullshit"){
-    let h = await message.channel.send("BULLSHIT");
-    h.edit("bakugan");
-    h.edit("ashes");
-    h.edit("bakugan");
-    h.edit("ashes");
-    h.edit("bakugan");
-    h.edit("ashes");
-    h.edit("bakugan");
-    h.edit("ashes");
-    h.edit("bakugan");
-    h.edit("ashes");
-    h.edit("bakugan");
-    h.edit("ashes");
-    h.edit("bakugan");
-    h.edit("ashes");
-    h.edit("bakugan");
-    h.edit("ashes");
-    h.edit("bakugan");
-    h.edit("ashes");
-    h.edit("bakugan");
-    h.edit("ashes");
-    h.edit("bakugan");
-    h.edit("ashes");
-  }
   
   if(command === "applause") { 
     for (let i = 0; i < 9001; i++)//over 9000!!! 
     {
       message.channel.send("*applause*");//pretty shit tho, only sends 5 messages and rests for 5 sec
+    }
+  }
+  if (command === "transmutate"){
+    let originalString = args.join(); 
+    let firString = originalString.replace('<@!', '');
+    let secString = firString.replace('>', ''); 
+    while(message.member.id !== secString){
+    message.channel.send(args.join())
     }
   }
 
@@ -159,12 +146,6 @@ client.on("message", async message => {
   message.channel.send("ok then");
   message.channel.send("i like pineapples I suppose");
  }
-if(command === "punch" && args.join(" ") === "rush!")
-{
-  message.delete();
-  message.delete();
-  message.send("lol how did this reach");
-}
 
 });
 

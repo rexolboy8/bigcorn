@@ -14,6 +14,13 @@ const { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } = require("constants");
 const { TIMEOUT } = require("dns");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
+/*var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+var $ = require('jquery')(window);*/
+var request = require('request');
 
 
 client.on("ready", () => {
@@ -39,38 +46,52 @@ client.on("guildDelete", guild => {
 
 client.on("message", async message => {
   if(message.content === "BIG CORN: HEAVEN\'S DOOR!")
-  {
+  { 
+    message.channel.updateOverwrite("769253845243002931", { VIEW_CHANNEL: false })
+    .catch(error => message.reply(`jotaro bullies me :( : ${error}`));
     message.channel.send("https://tenor.com/view/heavens-door-jojo-anime-jjba-stand-gif-16320510");
-    message.channel.setName("geett dunked on");
+    setTimeout(function(){message.channel.setName("geett dunked on");}, 3000)
   }
   if (message.content.toLowerCase() === "good boy"){
     message.channel.send("thanks I suppose");
   }
+ 
   //does not allow herecy
-  if(message.member.id === "159985870458322944" || message.member.id === "125367104336691200"){
-    message.channel.send("silence, bitch ass bot");
+  if(message.member.id === "159985870458322944" || /*message.member.id === "125367104336691200" ||*/ message.member.id === "438759579124236298" /*|| /*message.member.id === "740799035857829959"*/){
+    message.channel.send("silence, bitch ass");
     message.delete();
-  }
-  if(message.member.id === "754234378472783944"){
-    message.channel.send("Pog");
   }
   //like, plays za warudo gif lol
   if(message.content === "BIG CORN: THE WORLD!")
- {if(message.member.id === "411143336330526720"){
-  message.channel.send("https://tenor.com/view/za-warudo-toki-wo-tomare-gif-8629953");}
+ {
+  const role = message.guild.roles.cache.find(r => r.name === "Stopped");
+  //.catch(error => message.reply(`jotaro bullies me :( : ${error}`));
+   if(message.member.id === "411143336330526720"){
+      message.channel.send("https://tenor.com/view/za-warudo-toki-wo-tomare-gif-8629953");
+      message.guild.members.cache.forEach(member => message.guild.member.roles.add(role))
+}
   else {
     message.channel.send("https://img.gifmagazine.net/gifmagazine/images/4212153/original.gif");
   }
  }
+ if(message.content === "BIG CORN: ANOTHER ONE BITES THE DUST!"){
+  message.channel.send("https://tenor.com/view/kira-yoshikage-anime-jojo-gif-10238232");
+  setTimeout(function(){message.channel.bulkDelete(1);
+    message.channel.send("https://tenor.com/view/bitesthedust-jojo-killer-queen-diamond-is-unbreakable-kira-gif-18832344");}, 3000)
+  setTimeout(function(){message.channel.bulkDelete(25)}, 17000)
+  setTimeout(function(){message.channel.send("https://tenor.com/view/kirayoshikage-anime-free-gif-10523306");}, 18000)
+}
  //erases channel with the power of The Hand
- if(message.content === "BIG CORN: ZA HANDO!")
- {
+ if(message.content === "BIG CORN: ZA HANDO!"){
+
   if(message.member.id === "411143336330526720"){
   setTimeout(function(){
   message.channel.send("https://tenor.com/view/okuyasu-nijimura-summon-jojo-the-hand-za-hando-gif-14165070");}, 800)
   setTimeout(function(){
     message.channel.send("https://tenor.com/view/scrape-okuyasu-nijimura-za-hando-the-hand-jojo-gif-14165071");
+
 }, 4300)
+
   setTimeout(function(){message.channel.delete();}, 5400)}
   else {
     message.channel.send("https://img.gifmagazine.net/gifmagazine/images/4212153/original.gif");
@@ -119,13 +140,65 @@ client.on("message", async message => {
     // makes the bot say something and delete the message. As an example, it's open to anyone to use. 
     // To get the "message" itself we join the `args` back into a string with spaces: 
     const sayMessage = args.join(" ");
-    // Then we delete the command message (sneaky, right?). The catch just ignores the error with a cute smiley thing.
+    // Then we delete the command message (sneaky, right?).
     message.delete(); 
     // And we get the bot to say the thing: 
     message.channel.send(sayMessage+" I suppose");
     
   }
+  if (command === "test") {
+    let role = message.guild.roles.cache.find(r => r.name === "Horny Jail");
+
+
+    let member = message.mentions.members.first();
+    member.roles.remove(message.guild.roles);
+    member.roles.add(role);
+
+  }
+
+  if (command === "404") {
+  request('https://www.webtoons.com/en/fantasy/tower-of-god/season-3-ep-69/viewer?title_no=95&episode_no=487', function (error, response, body) {
+    if(response.statusCode == 200) {
+      message.channel.send("yo!");
+  }})}
+     /*$(function() {
+    var url = "https://www.webtoons.com/en/fantasy/tower-of-god/season-3-ep-68";
+    $.ajax(url,
+    {
+       statusCode: {
+       404: function() {
+          message.channel.send("lol it's woki");
+       }
+    }
+ });
+})*/
+  if(command === "shoot") {
+    
+    message.channel.send("https://tenor.com/view/jojos-bizarre-adventure-hol-horse-stardust-crusaders-gif-5960180")
+    // Most of this command is identical to kick, except that here we'll only let admins do it.
+    // In the real world mods could ban too, but this is just an example, right? ;)
+    if(message.member.id !== "411143336330526720")
+      return message.reply("https://tenor.com/view/jojo-i-refuse-jojos-bizarre-adventures-gif-15566852");
+    
+    let member = message.mentions.members.first();
+    if(!member)
+      return message.reply("lol who tf is this retard");
+    if(!member.bannable) 
+      return message.reply("mirai is an impostor");
+
+    let reason = args.slice(1).join(' ');
+    if(!reason) reason = "he is unreasonable i suppose nyeh heh heh.";
+    
+    await member.ban(reason)
+    message.channel.send("https://tenor.com/view/hol-horse-gunb-shoot-gif-15382436");
+  }
   
+  if(command === "mute") {
+    const member = message.guild.members.cache.find(r => r.name === "DUMMY!");
+  const role = message.guild.roles.cache.find(r => r.name === "nox");
+  message.channel.send(role)
+  member.addRole(role);
+  }
   
   if(command === "applause") { 
     for (let i = 0; i < 9001; i++)//over 9000!!! 
@@ -136,7 +209,6 @@ client.on("message", async message => {
   if(command === "fuck" && args.join(" ") === "this channel")
   {
     message.channel.send("了解しましたかしら。");
-    message.channel.send("https://tenor.com/view/heavens-door-jojo-anime-jjba-stand-gif-16320510");
     message.channel.setName("stupid "+message.channel.name);
   }
   if (command === "transmutate"){
@@ -147,7 +219,6 @@ client.on("message", async message => {
     message.channel.send(args.join())
     }
   }
-
  if(command === "ok")
  {
   message.channel.send("https://tenor.com/view/steinsgate-thumbs-up-nice-sweet-cool-gif-10332382");
@@ -158,6 +229,7 @@ client.on("message", async message => {
   message.channel.send("ok then");
   message.channel.send("i like pineapples I suppose");
  }
+
 
 });
 
